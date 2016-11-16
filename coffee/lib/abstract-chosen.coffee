@@ -3,6 +3,7 @@ class AbstractChosen
   constructor: (@form_field, @options={}) ->
     return unless AbstractChosen.browser_is_supported()
     @is_multiple = @form_field.multiple
+    @can_select_by_group = @form_field.getAttribute('select-by-group') isnt null
     this.set_default_text()
     this.set_default_values()
 
@@ -298,4 +299,3 @@ class AbstractChosen
   @default_multiple_text: "Select Some Options"
   @default_single_text: "Select an Option"
   @default_no_result_text: "No results match"
-
